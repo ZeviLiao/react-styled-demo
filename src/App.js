@@ -1,20 +1,29 @@
 import React, { Component } from "react";
-import styled from "@emotion/styled";
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
-  padding: 32px;
-  background-color: hotpink;
-  font-size: 24px;
-  border-radius: 4px;
-  color: black;
-  font-weight: bold;
-  &:hover {
-    color: white;
-  };
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
+
+  ${props =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `}
 `;
 
-export default class App extends Component {
-  render() {
-    return <Button>This my button component.</Button>;
-  }
-}
+const Container = styled.div`
+  text-align: center;
+`;
+
+export default () => (
+  <Container>
+    <Button>Normal Button</Button>
+    <Button primary>Primary Button</Button>
+  </Container>
+);
